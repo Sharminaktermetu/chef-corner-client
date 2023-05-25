@@ -7,11 +7,12 @@ const Header = () => {
         <div>
     <div className="navbar bg-base-100">
   <div className="flex-1">
-    <Link to="/home">Chef Corner</Link>
+    <Link to="/home" className='text-4xl font-bold'><span className='text-red-400'>Ch</span>ef Corn<span className='text-red-400'>er</span></Link>
   </div>
   <div className="flex-none gap-2">
    <Link to="/home">Home</Link>
-   <Link to="/contact">Contact</Link>
+   <Link to="/login">Login</Link>
+   <Link to="/signup">Signup</Link>
     <div className="dropdown dropdown-end">
       <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">

@@ -7,7 +7,7 @@ const Recipes = ({recipe}) => {
             <div>
                 <h4 className='font-bold'>Ingridnes</h4>
                 <ul>
-                    {ingredients.map(ingredient=><li>.{ingredient}</li>)}
+                    {ingredients.map((ingredient,idx)=><li key={idx}>.{ingredient}</li>)}
                 </ul> 
             </div>
             <p><span className='font-bold'>{recipe_name} </span>{cooking_method}</p>
