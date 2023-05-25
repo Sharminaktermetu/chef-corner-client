@@ -1,5 +1,6 @@
 import React from 'react';
 import banner from '../../assets/watercolor-dongzhi-festival-background_23-2149185896.avif'
+import ChefsInfo from './ChefsInfo';
 const Home = () => {
     return (
       <div className='w-full m-auto'>
@@ -15,6 +16,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <ChefsInfo></ChefsInfo>
       </div>
     );
 };
