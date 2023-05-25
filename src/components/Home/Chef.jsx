@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 const Chef = ({ chef }) => {
     console.log(chef);
-    const { name, years_of_experience, number_of_recipes, likes,id } = chef;
+    const { name, years_of_experience, number_of_recipes, likes,id,picture } = chef;
     return (
         <div className='m-4'>
-            <div className="card card-compact bg-base-100 shadow-xl">
-                <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+            <div className="card card-compact bg-base-100 shadow-xl ">
+                <figure><img src={picture} alt="chef" className='w-300 h-300'/></figure>
                 <div className="card-body">
                     <h2 className="card-title">{name}</h2>
                     <div className='flex'>
