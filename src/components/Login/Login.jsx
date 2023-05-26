@@ -1,17 +1,47 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Providers/AuthProvider';
 
 const Login = () => {
+    const {signIn,googleLogIn}=useContext(AuthContext)
+    const handleLogIn=event=>{
+        event.preventDefault()
+        const form=event.target;
+   
+        const email =form.email.value;
+        const password =form.password.value;
+        console.log(email,password);
+        signIn(email,password)
+        .then(result=>{
+            const theUser =result.user;
+            console.log(theUser);
+        })
+        .catch(error=>{
+            console.log(error);
+        })
+    }
+    const handleGoogle=()=>{
+        googleLogIn()
+        .then((result)=>{
+            const userIs =result.user
+            console.log(userIs);
+        })
+        .catch((error)=>{
+            console.log(error);
+        })
+    }
+
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
         <div className="max-w-md w-full px-6 py-8 bg-white shadow-md rounded-md">
           <h2 className="text-2xl font-semibold mb-6">Login</h2>
-          <form>
+          <form onSubmit={handleLogIn}>
             <div className="mb-4">
               <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-700">
                 Email
               </label>
               <input
+              type='text'
                 name="email"
                 className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 required
@@ -22,6 +52,7 @@ const Login = () => {
                 Password
               </label>
               <input
+              type='password'
                 name="password"
                 className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 required
@@ -45,6 +76,7 @@ const Login = () => {
             <button
               type="button"
               className="flex items-center bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md focus:outline-none"
+              onClick={handleGoogle}
             >
              
               Google Sign-in

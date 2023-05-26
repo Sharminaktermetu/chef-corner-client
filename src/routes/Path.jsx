@@ -5,6 +5,7 @@ import Contact from "../components/Contact/Contact";
 import Details from "../components/Details/Details";
 import Login from "../components/Login/Login";
 import Signup from "../components/Signup/Signup";
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -18,8 +19,9 @@ const router = createBrowserRouter([
 
     {
       path: "/data/:id",
-      element: <Details></Details>,
-      loader:({params})=>fetch(`http://localhost:5000/data/${params.id}`)
+      element:<PrivateRoute> <Details></Details></PrivateRoute>,
+      loader:({params})=>fetch(`https://server-chef-adsmarketersaif13-gmailcom.vercel.app/data/\
+      ${params.id}`)
     },
     {
       path: "/login",

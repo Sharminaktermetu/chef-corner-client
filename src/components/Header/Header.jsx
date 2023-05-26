@@ -1,7 +1,15 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, Navigate } from 'react-router-dom';
+import { AuthContext } from '../Providers/AuthProvider';
+
 
 const Header = () => {
+  const {user,logOut}=useContext(AuthContext)
+  const handleLogOut=()=>{
+    logOut()
+    .then(()=>{})
+    .catch(()=>{})
+  }
 
     return (
         <div>
@@ -9,30 +17,23 @@ const Header = () => {
   <div className="flex-1">
     <Link to="/" className='text-4xl font-bold'><span className='text-red-400'>Ch</span>ef Corn<span className='text-red-400'>er</span></Link>
   </div>
-  <div className="flex-none gap-2">
+  <div className="flex-2 gap-2">
    <Link to="/">Home</Link>
    <Link to="/login">Login</Link>
    <Link to="/signup">Signup</Link>
-    <div className="dropdown dropdown-end">
-      <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-        <div className="w-10 rounded-full">
-          <img src="https://i.ibb.co/8sV2FTX/png-clipart-user-profile-computer-icons-login-user-avatars-monochrome-black-thumbnail.png"/>
-        </div>
-      </label>
-      <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
-        <li>
-          <a className="justify-between">
-            Profile
-            <span className="badge">New</span>
-          </a>
-        </li>
-        <li><a>Settings</a></li>
-        <li><a>Logout</a></li>
-      </ul>
+
+   {user&&
+        <>
+           <img className='w-9 h-9' src={user.photoURL} alt=""   title={user.email} />
+            <button className='btn-error btn' onClick={handleLogOut}>Log out</button>
+        </>
+  }
+
+    
     </div>
   </div>
 </div>
-        </div>
+       
     );
 };
 

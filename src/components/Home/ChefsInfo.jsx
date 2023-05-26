@@ -4,7 +4,7 @@ import Chef from './Chef';
 const ChefsInfo = () => {
     const[chefs, setChefs]=useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/data')
+        fetch('https://server-chef-adsmarketersaif13-gmailcom.vercel.app/data')
         .then(res=>res.json())
         .then(data=>setChefs(data))
     },[])

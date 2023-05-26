@@ -13,17 +13,19 @@ const handleSignUp=(event)=>{
     const name =form.text.value;
     const email =form.email.value;
     const password =form.password.value;
-    const photo =form.photo.value;
+    const photoURL =form.photoURL.value;
     setError('')
   if (password.length<6) {
    setError("Password must be 6 charecter")
    return;
   }
-  createUser(email,password)
+  createUser(email,password,photoURL)
   .then(result=>{
     const loggedUser =result.user;
-    console.log(loggedUser);
-    form.reset()
+    return loggedUser.updateProfile({
+      photoURL: photoURL
+    });
+   
   })
   .then(error=>{
     console.log(error);
@@ -81,7 +83,7 @@ const handleSignUp=(event)=>{
                 id="photoUrl"
                 type="text"
                 placeholder="Enter your photo URL"
-               name='photo'
+               name='photoURL'
                required
               />
             </div>
