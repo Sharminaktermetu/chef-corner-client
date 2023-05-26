@@ -20,8 +20,8 @@ const Frozen = () => {
         },
       ];
     return (
-        <div>
-            <h3 className='text-4xl font-bold text-center p-10'><span className='border-red-500 border-b-4'>A Frozen Treat</span></h3>
+        <div className='my-5'>
+            <h3 className='text-4xl font-bold text-center p-10 my-10'><span className='border-red-500 border-b-4'>A Frozen Treat</span></h3>
             <div className="flex flex-wrap justify-center">
       {cardData.map((card, index) => (
         <div key={index} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4 mb-8">
