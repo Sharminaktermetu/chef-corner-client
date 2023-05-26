@@ -42,7 +42,7 @@ const Header = () => {
 
           {user && (
             <>
-              <img className="w-9 h-9" src={user.photoURL} alt="" title={user.email} />
+              <img className="w-9 h-9" src={user.photoURL} alt="" title={user.displayName} />
               <button className="btn-error btn" onClick={handleLogOut}>
                 Log out
               </button>

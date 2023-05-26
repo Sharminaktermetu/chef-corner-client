@@ -5,12 +5,14 @@ import Details from "../components/Details/Details";
 import Login from "../components/Login/Login";
 import Signup from "../components/Signup/Signup";
 import PrivateRoute from "./PrivateRoute";
+import Error from "../components/ErrorPage/Error";
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement:<Error></Error>,
     children: [{
       path: "/",
       element: <Home></Home>
