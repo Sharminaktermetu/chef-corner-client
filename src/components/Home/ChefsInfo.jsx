@@ -11,7 +11,7 @@ const ChefsInfo = () => {
     return (
         <div>
             <div>
-                <h3 className='text-3xl font-bold text-center p-10'>Chefes info here</h3>
+                <h3 className='text-3xl font-bold text-center p-10'>Popular <span className='text-rose-500'>Ch</span>efs</h3>
             </div>
             <div className='grid lg:grid-cols-3 m-auto w-9/12'>
             {chefs.map(chef=><Chef key={chef.likes} chef={chef}></Chef>)}

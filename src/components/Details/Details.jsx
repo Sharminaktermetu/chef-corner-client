@@ -16,9 +16,7 @@ const Details = () => {
                     <p><span className='font-bold text-red-500'>Years of exprience:</span> {years_of_experience}yr</p>
                     <p><span className='font-bold text-red-500'>Numbers of recips:</span> {number_of_recipes}</p>
                     <p><span className='font-bold text-red-500'>Likes: </span>{likes}</p>
-                    <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Watch</button>
-                    </div>
+                  
                 </div>
             </div>
             <div>

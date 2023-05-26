@@ -1,6 +1,8 @@
 import React from 'react';
 import banner from '../../assets/watercolor-dongzhi-festival-background_23-2149185896.avif'
 import ChefsInfo from './ChefsInfo';
+import Frozen from './Frozen';
+import Soup from './Soup';
 const Home = () => {
     return (
       <div className='w-full m-auto'>
@@ -17,6 +19,8 @@ const Home = () => {
         </div>
       </div>
       <ChefsInfo></ChefsInfo>
+      <Frozen></Frozen>
+      <Soup></Soup>
       </div>
     );
 };

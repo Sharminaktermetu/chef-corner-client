@@ -12,18 +12,20 @@ const AuthProvider = ({children}) => {
     const [loading, setLoader] = useState(true);  
           
     const createUser =(email,password,photoURL)=>{
-        setLoader()
+        setLoader(true)
        return createUserWithEmailAndPassword(auth, email, password,photoURL);
     }
+
     const signIn =(email,password)=>{
-        setLoader()
+        setLoader(true)
         return signInWithEmailAndPassword(auth, email, password);
     }
+    
     const logOut =()=>{
        return signOut(auth);
     }
     const googleLogIn =()=>{
-        setLoader()
+        
         return signInWithPopup(auth,provider);
     }
     useEffect(()=>{
