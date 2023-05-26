@@ -6,6 +6,7 @@ const Signup = () => {
   
   const{createUser}=useContext(AuthContext)
   const[error,setError]=useState('')
+  const[haveEmail,setEmail]=useState('')
 
 const handleSignUp=(event)=>{
     event.preventDefault()
@@ -22,13 +23,11 @@ const handleSignUp=(event)=>{
   createUser(email,password,photoURL)
   .then(result=>{
     const loggedUser =result.user;
-    return loggedUser.updateProfile({
-      photoURL: photoURL
-    });
+    console.log(loggedUser);
    
   })
-  .then(error=>{
-    console.log(error);
+  .catch(error=>{
+    setError("Check mail again")
   })
 }
 
@@ -36,6 +35,7 @@ const handleSignUp=(event)=>{
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
         <div className="w-full max-w-md">
           <h3 className='text-4xl font-bold text-center p-4'>Please Regist<span className='text-rose-500'>er</span></h3>
+          {error && <div className="text-red-500 font-bold text-center">{error}</div>}
           <form onSubmit={handleSignUp} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
             <div className="mb-6">
             
@@ -97,7 +97,7 @@ const handleSignUp=(event)=>{
             </div>
 
             <small>Already have an account? <Link to="/login" className='btn-link'> Login</Link></small>
-            <p className='text-error'>{error}</p>
+            
           </form>
          
         </div>

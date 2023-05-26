@@ -1,28 +1,30 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Providers/AuthProvider';
 
 const Login = () => {
-    const {signIn,googleLogIn}=useContext(AuthContext)
+    const {signIn,googleLogIn,gitLogin,user}=useContext(AuthContext)
+    const [error,setError] =useState('')
     const navigate =useNavigate();
     const location =useLocation()
     const from =location?.state?.from?.pathname || '/';
     const handleLogIn=event=>{
         event.preventDefault()
-        const form=event.target;
-   
+        const form=event.target; 
         const email =form.email.value;
         const password =form.password.value;
-        console.log(email,password);
+       
         signIn(email,password)
         .then(result=>{
             const theUser =result.user;
-            console.log(theUser);
+          
             form.reset();
             navigate(from,{replace:true})
+         
         })
         .catch(error=>{
-            console.log(error);
+           
+           setError("User or password not matched !!")
         })
     }
     const handleGoogle=()=>{
@@ -30,6 +32,17 @@ const Login = () => {
         .then((result)=>{
             const userIs =result.user
             console.log(userIs);
+            navigate(from,{replace:true})
+        })
+        .catch((error)=>{
+            console.log(error);
+        })
+    }
+    const handleGithub=()=>{
+      gitLogin()
+        .then((result)=>{
+            const userIs =result.user;
+            navigate(from,{replace:true})
         })
         .catch((error)=>{
             console.log(error);
@@ -40,6 +53,7 @@ const Login = () => {
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
         <div className="max-w-md w-full px-6 py-8 bg-white shadow-md rounded-md">
           <h2 className="text-2xl font-semibold mb-6">Login</h2>
+          {error && <div className="text-red-500 font-bold text-center">{error}</div>}
           <form onSubmit={handleLogIn}>
             <div className="mb-4">
               <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-700">
@@ -71,6 +85,7 @@ const Login = () => {
                 Login
               </button>
             </div>
+           
           </form>
           <div className="flex items-center mb-6">
             <div className="border-t border-gray-300 flex-grow mr-3"></div>
@@ -89,6 +104,7 @@ const Login = () => {
             <button
               type="button"
               className="flex items-center bg-black hover:bg-gray-800 text-white px-4 py-2 rounded-md focus:outline-none"
+              onClick={handleGithub}
             >
               GitHub Sign-in
             </button>

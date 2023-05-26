@@ -2,7 +2,7 @@ import React from 'react';
 
 const Soup = () => {
     return (
-        <div className='w-9/12  grid lg:grid-cols-2 m-auto items-center'>
+        <div className='w-9/12  grid lg:grid-cols-2 m-auto items-center mb-20'>
             <img src="https://static.vecteezy.com/system/resources/previews/021/609/098/original/tom-yum-kung-soup-traditional-thai-spicy-soup-png.png" alt=""  className='w-9/12'/>
             <div>
             <span className='text-bold font-semibold text-error text-2xl'>Tom Yum Soup</span>

@@ -7,7 +7,7 @@ const Chef = ({ chef }) => {
         <div className='m-4'>
             <div className="card card-compact bg-base-100 shadow-xl ">
                 <figure>
-                    <img src={picture} alt="chef" className="w-300 h-300 filter grayscale opacity-50 hover:filter-none hover:opacity-100 transition-all duration-300" />
+                    <img src={picture} alt="chef" className="filter grayscale opacity-50 hover:filter-none hover:opacity-100 transition-all duration-300" />
                 </figure>
 
 
@@ -18,9 +18,9 @@ const Chef = ({ chef }) => {
                         <p><span className='font-bold'>Exprience:</span>{years_of_experience}years</p>
                         <p><span className='font-bold'>Recipes:</span>{number_of_recipes}</p>
                     </div>
-                    <div className="card-actions justify-end">
-                        <p className='p-3 font-bold text-orange-600'>
-                            <span className='text-blue-600'><FaThumbsUp/></span>
+                    <div className="card-actions justify-end my-4 items-center">
+                        <p className='font-bold text-orange-600 flex items-center'>
+                            <span className='text-blue-600 mr-2'><FaThumbsUp/></span>
                             {likes}
                         </p>
 

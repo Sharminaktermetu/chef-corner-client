@@ -10,7 +10,7 @@ const Frozen = () => {
         },
         {
           imageSrc: 'https://makansutra.com/wp-content/uploads/2018/07/1040f9_picture-2.jpg',
-          title: 'KOKO ICE CREAM',
+          title: 'KOKO Ice Cream',
           description: "Tempt your taste buds with our creamy, indulgent flavors crafted with love and the finest ingredients."
         },
         {
