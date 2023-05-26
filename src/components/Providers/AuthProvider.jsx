@@ -8,11 +8,14 @@ const auth = getAuth(app);
 
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);        
-    const [loader, setLoader] = useState(true);        
+    const [loading, setLoader] = useState(true);  
+          
     const createUser =(email,password)=>{
+        setLoader()
        return createUserWithEmailAndPassword(auth, email, password);
     }
     const signIn =(email,password)=>{
+        setLoader()
         return signInWithEmailAndPassword(auth, email, password);
     }
     const logOut =()=>{
@@ -31,7 +34,7 @@ const AuthProvider = ({children}) => {
 
     const authInfo={
         user,
-        loader,
+        loading,
         createUser,
         signIn,
         logOut
