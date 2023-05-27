@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { AuthContext } from '../Providers/AuthProvider';
-import { FaBars,FaRegWindowClose } from "react-icons/fa";
+import { FaBars, FaRegWindowClose } from "react-icons/fa";
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
   const location = useLocation();
@@ -41,23 +41,28 @@ const Header = () => {
               >
                 Signup
               </NavLink>
+
+            </div>
+          </ul>
+
+          {user ? (
+            <div className='lg:flex hidden px-3'>
+              <img className="w-9 h-9 mt-4 rounded-lg" src={user.photoURL} alt="" title={user.displayName} />
+              <button className="btn-error btn mx-2" onClick={handleLogOut}>
+                Log out
+              </button>
+            </div>
+          ) : (
+            <>
               <NavLink
-                to='/login'
+                to="/login"
                 className={({ isActive }) => `${isActive ? 'text-red-600' : ''} font-bold px-2`}
               >
                 Login
               </NavLink>
-            </div>
-          </ul>
-
-          {user && (
-            <>
-              <img className="w-9 h-9" src={user.photoURL} alt="" title={user.displayName} />
-              <button className="btn-error btn" onClick={handleLogOut}>
-                Log out
-              </button>
             </>
           )}
+
           <div className='lg:hidden'>
             <button
               aria-label='Open Menu'
@@ -65,14 +70,14 @@ const Header = () => {
               className='p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50'
               onClick={() => setIsMenuOpen(true)}
             >
-               <FaBars className='text-3xl'></FaBars>
+              <FaBars className='text-3xl'></FaBars>
             </button>
             {isMenuOpen && (
               <div className='absolute z-10 top-0 left-0 w-full'>
                 <div className='p-5 bg-white border rounded shadow-sm'>
                   <div className='flex items-center justify-between mb-4'>
                     <div className='flex items-end justify-end'>
-                      <button className='text-3xl' onClick={() => setIsMenuOpen(false)}><FaRegWindowClose/> </button>
+                      <button className='text-3xl' onClick={() => setIsMenuOpen(false)}><FaRegWindowClose /> </button>
                     </div>
                   </div>
                   <nav>
