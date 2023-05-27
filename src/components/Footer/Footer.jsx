@@ -3,9 +3,9 @@ import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white p-4">
+    <footer className="h-16 bg-black flex items-center justify-center">
       <div className="container mx-auto flex items-center justify-between">
-        <span className="text-sm">© 2023 Chef Corner Website</span>
+        <span className="text-sm text-white">© 2023 Chef Corner Website</span>
         <div className="flex space-x-4">
           <a
             href="#"

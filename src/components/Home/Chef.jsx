@@ -1,13 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaArrowRight,FaThumbsUp  } from "react-icons/fa";
+import LazyLoad from 'react-lazy-load';
+
+
+
 const Chef = ({ chef }) => {
     const { name, years_of_experience, number_of_recipes, likes, id, picture } = chef;
     return (
         <div className='m-4'>
             <div className="card card-compact bg-base-100 shadow-xl ">
                 <figure>
-                    <img src={picture} alt="chef" className="filter grayscale opacity-50 hover:filter-none hover:opacity-100 transition-all duration-300" />
+                <LazyLoad>
+                <img src={picture} alt="chef" className="filter grayscale opacity-50 hover:filter-none hover:opacity-100 transition-all duration-300" />
+                </LazyLoad>
+              
                 </figure>
 
 

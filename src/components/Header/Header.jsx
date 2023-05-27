@@ -8,8 +8,8 @@ const Header = () => {
 
   const handleLogOut = () => {
     logOut()
-      .then(() => {})
-      .catch(() => {});
+      .then(() => { })
+      .catch(() => { });
   };
 
   return (
@@ -21,24 +21,30 @@ const Header = () => {
           </Link>
         </div>
         <div className="flex-2 gap-2">
-        <NavLink
-              to='/'
-              className= {({ isActive }) => `${isActive ? 'text-red-600' : ''} font-bold`}
-            >
-              Home
-            </NavLink>
-            <NavLink
-              to='/signup'
-              className= {({ isActive }) => `${isActive ? 'text-red-600' : ''} font-bold`}
-            >
-              Signup
-            </NavLink>
-            <NavLink
-              to='/login'
-              className= {({ isActive }) => `${isActive ? 'text-red-600' : ''} font-bold`}
-            >
-              Login
-            </NavLink>
+          <NavLink
+            to='/'
+            className={({ isActive }) => `${isActive ? 'text-red-600' : ''} font-bold`}
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to='/blogs'
+            className={({ isActive }) => `${isActive ? 'text-red-600' : ''} font-bold`}
+          >
+            Blogs
+          </NavLink>
+          <NavLink
+            to='/signup'
+            className={({ isActive }) => `${isActive ? 'text-red-600' : ''} font-bold`}
+          >
+            Signup
+          </NavLink>
+          <NavLink
+            to='/login'
+            className={({ isActive }) => `${isActive ? 'text-red-600' : ''} font-bold`}
+          >
+            Login
+          </NavLink>
 
           {user && (
             <>
