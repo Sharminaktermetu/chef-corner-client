@@ -3,6 +3,10 @@ import banner from '../../assets/watercolor-dongzhi-festival-background_23-21491
 import ChefsInfo from './ChefsInfo';
 import Frozen from './Frozen';
 import Soup from './Soup';
+
+import AnotherSection from './Another';
+import Explore from './Explore';
+import Review from './Review';
 const Home = () => {
     return (
       <div className='w-full m-auto'>
@@ -21,6 +25,10 @@ const Home = () => {
       <ChefsInfo></ChefsInfo>
       <Frozen></Frozen>
       <Soup></Soup>
+      
+     <Explore></Explore>
+     <Review></Review>
+      <AnotherSection></AnotherSection>
       </div>
     );
 };
